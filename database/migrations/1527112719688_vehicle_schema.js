@@ -6,9 +6,17 @@ class VehicleSchema extends Schema {
   up () {
     this.create('vehicles', (table) => {
       table.increments()
-      table.string('licence_plate').notNullable().unique()
+      table.string('license_plate').notNullable().unique()
       table.string('brand', 100).notNullable()
       table.string('model', 100).notNullable()
+      table.enum('category', [
+        'SMALL',
+        'HATCH',
+        'SEDAN',
+        'SUV',
+        'LUXURY',
+        'SPORTING'
+      ]).notNullable()
       table.enum('status', [
         'AVAILABLE',
         'RENTED',

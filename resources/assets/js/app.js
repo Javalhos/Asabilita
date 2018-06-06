@@ -1,13 +1,20 @@
 import Vue from 'vue';
 
-import './bootstrap';
 import App from './App.vue';
-import { router } from './router';
+import { router } from './router.js';
 
-const app = new Vue({
-	// render: h => h('#app'),
-	el: '#app',
-	template: `<app></app>`,
-	components: { App },
-	router
+try {
+  window.$ = window.jQuery = require('jquery');
+  window.Popper = require('popper.js');
+
+  require('bootstrap');
+} catch (e) {
+  console.log('Erro ao carregar pacotes do client.');
+}
+
+new Vue({
+  el: '#app',
+  template: '<app></app>',
+  components: { App },
+  router
 });

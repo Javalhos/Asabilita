@@ -13,8 +13,10 @@ mix.setPublicPath('public');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css')
-   .copyDirectory('resources/assets/images', 'public/images');
+  .copyDirectory('resources/assets/css', 'public/css')
+  .copyDirectory('resources/assets/webfonts', 'public/webfonts')
+  .sass('resources/assets/sass/app.scss', 'public/css')
+  .copyDirectory('resources/assets/images', 'public/images');
 
 // mix.version();
 

@@ -29,6 +29,19 @@ class User extends Model {
   tokens () {
     return this.hasMany('App/Models/Token')
   }
+
+  json() {
+    return {
+      id: this.id,
+      name: this.name,
+      lastName: this.last_name,
+      fullName: `${this.name} ${this.last_name}`.trim(),
+      birthday: this.birthday,
+      email: this.email,
+      cpf: this.cpf,
+      role: this.role
+    };
+  }
 }
 
 module.exports = User
