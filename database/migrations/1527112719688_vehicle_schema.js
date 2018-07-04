@@ -25,9 +25,14 @@ class VehicleSchema extends Schema {
         'SOLD',
         'UNAVAILABLE'
       ]).defaultTo('AVAILABLE')
-      table.string('year', 15).notNullable()
+      table.string('year', 5).notNullable()
       table.integer('mileage').notNullable().defaultTo(0)
       table.float('price').notNullable()
+      table.float('buy_price').notNullable()
+      table.date('buy_date').notNullable()
+      table.float('sell_price').defaultTo(null)
+      table.date('sell_date').defaultTo(null)
+      table.text('image', 'longtext').defaultTo(null)
       table.timestamps()
     })
   }

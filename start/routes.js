@@ -13,8 +13,11 @@ Route.group(() => {
   Route.get('/user/load', 'UserController.load').middleware(['auth']);
 
   // Vehicle Routes
-  Route.get('/vehicle', 'VehicleController.show');
+  Route.get('/vehicle/:id', 'VehicleController.show');
+  Route.get('/vehicle', 'VehicleController.index');
   Route.post('/vehicle', 'VehicleController.store').validator('NewVehicleValidator');
+  Route.get('/vehicle/stats', 'VehicleController.stats');
+  Route.delete('/vehicle/:id', 'VehicleController.destroy');
 
   // Ally (Social Media Login/Register) Routes
   Route.get('/ally/register/:provider', 'SocialAuthController.redirect');

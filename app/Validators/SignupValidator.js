@@ -6,7 +6,7 @@ class SignupValidator {
       email: 'required|unique:users|email',
       password: 'required|confirmed|min:6',
       cpf: 'required|unique:users|min:11|max:11',
-      birthday: 'required'
+      birthday: 'required|date'
     }
   }
 

@@ -1,4 +1,7 @@
 import Vue from 'vue';
+import BootstrapVue from 'bootstrap-vue';
+
+Vue.use(BootstrapVue);
 
 import App from './App.vue';
 import { router } from './router.js';

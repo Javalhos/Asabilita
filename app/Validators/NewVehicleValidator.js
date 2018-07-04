@@ -6,11 +6,14 @@ class NewVehicleValidator {
       brand: 'required',
       model: 'required',
       license_plate: 'required|regex:^[A-Z]{3}[0-9]{4}$',
-      year: 'required|dateFormat:YYYY',
+      year: `required|regex:^[0-9]{4}|max:${(new Date).getFullYear()}`,
       category: 'required|in:SMALL,HATCH,SEDAN,SUV,LUXURY,SPORTING',
       status: 'required|in:AVAILABLE,RENTED,MAINTENANCE,FOR_SALE,SOLD,UNAVAILABLE',
-      mileage: 'required|number',
-      price: 'required|number'
+      mileage: 'required|min:0',
+      price: 'required|min:0',
+      buy_date: 'required',
+      buy_price: 'required',
+      image: 'required'
     };
   }
 

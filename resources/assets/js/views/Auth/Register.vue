@@ -1,8 +1,8 @@
 <template>
-	<main class="h-75 mt-5">
+	<main class="container-fluid h-75 mt-5">
 		<div class="row mt-5 h-100 align-items-center">
       <div class="col-md-4 offset-md-4">
-        <div class="card-register shadow mt-4">
+        <div class="card bg-white text-dark shadow mt-4">
           <article class="card-body">
             <h4 class="card-title text-center">Nova Conta</h4>
             <form class="p-2" @submit.prevent="register">
@@ -10,63 +10,67 @@
                 <div class="form-group col-md-6">
                   <input
                     type="text"
-                    :class="{ 'form-control form-control-lg': true, 'is-invalid': !!errors.name }"
+                    :class="{ 'form-control form-control-lg': true, 'is-invalid': !!frm.err.name }"
                     placeholder="Nome"
-                    v-model="form.name">
-                  <small class="form-text text-danger" v-show="!!errors.name">{{ errors.name }}</small>
+                    v-model="frm.data.name">
+                  <small class="form-text text-danger" v-show="!!frm.err.name">{{ frm.err.name }}</small>
                 </div>
     
                 <div class="form-group col-md-6">
                   <input type="text"
-                  :class="{ 'form-control form-control-lg': true, 'is-invalid': !!errors.last_name }"
+                  :class="{ 'form-control form-control-lg': true, 'is-invalid': !!frm.err.last_name }"
                     placeholder="Sobrenome"
-                    v-model="form.last_name">
-                  <small class="form-text text-danger" v-show="!!errors.last_name">{{ errors.last_name }}</small>
+                    v-model="frm.data.last_name">
+                  <small class="form-text text-danger" v-show="!!frm.err.last_name">{{ frm.err.last_name }}</small>
                 </div>
               </div>
     
               <div class="form-group">
-                <input type="text"
-                  :class="{ 'form-control form-control-lg': true, 'is-invalid': !!errors.birthday }"
-                  placeholder="Data de Nascimento DD/MM/AAAA"
-                  v-model="form.birthday">
-                <small class="form-text text-danger" v-show="!!errors.birthday">{{ errors.birthday }}</small>
+                <app-datepicker v-model="frm.data.birthday"
+                  lang="pt-br"
+                  placeholder="Data de Nascimento"
+                  :input-class="`form-control form-control-lg ${!!frm.err.birthday ? 'is-invalid': ''}`"
+                  width="100%"
+                  :editable="true"
+                  format="dd/MM/yyyy"></app-datepicker>
+                <small class="form-text text-danger" v-show="!!frm.err.birthday">{{ frm.err.birthday }}</small>
               </div>
 
               <div class="form-group">
                 <input type="text"
-                  :class="{ 'form-control form-control-lg': true, 'is-invalid': !!errors.cpf }"
+                  :class="{ 'form-control form-control-lg': true, 'is-invalid': !!frm.err.cpf }"
                   placeholder="CPF"
                   @keyup="checkCPF"
-                  v-model="form.cpf">
-                <small class="form-text text-danger" v-show="!!errors.cpf">{{ errors.cpf }}</small>
+                  v-model="frm.data.cpf"
+                  maxlength="11">
+                <small class="form-text text-danger" v-show="!!frm.err.cpf">{{ frm.err.cpf }}</small>
               </div>
     
               <div class="form-group">
                 <input type="email"
-                  :class="{ 'form-control form-control-lg': true, 'is-invalid': !!errors.email }"
+                  :class="{ 'form-control form-control-lg': true, 'is-invalid': !!frm.err.email }"
                   placeholder="e-Mail"
-                  v-model="form.email">
-                <small class="form-text text-danger" v-show="!!errors.email">{{ errors.email }}</small>
+                  v-model="frm.data.email">
+                <small class="form-text text-danger" v-show="!!frm.err.email">{{ frm.err.email }}</small>
               </div>
     
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <input type="password"
-                    :class="{ 'form-control form-control-lg': true, 'is-invalid': !!errors.password }"
+                    :class="{ 'form-control form-control-lg': true, 'is-invalid': !!frm.err.password }"
                     placeholder="Senha"
-                    v-model="form.password">
-                  <small class="form-text text-danger" v-show="!!errors.password">{{ errors.password }}</small>
+                    v-model="frm.data.password">
+                  <small class="form-text text-danger" v-show="!!frm.err.password">{{ frm.err.password }}</small>
                 </div>
     
                 <div class="form-group col-md-6">
                   <input type="password"
-                    :class="{ 'form-control form-control-lg': true, 'is-invalid': !!errors.password_confirmation }"
+                    :class="{ 'form-control form-control-lg': true, 'is-invalid': !!frm.err.password_confirmation }"
                     placeholder="Repetir Senha"
-                    v-model="form.password_confirmation">
+                    v-model="frm.data.password_confirmation">
                   <small class="form-text text-danger"
-                    v-show="!!errors.password_confirmation">
-                    {{ errors.password_confirmation }}
+                    v-show="!!frm.err.password_confirmation">
+                    {{ frm.err.password_confirmation }}
                   </small>
                 </div>
               </div>
@@ -85,10 +89,12 @@
 </template>
 
 <script>
+import DatePicker from 'vue2-datepicker';
 import { post, get } from '../../helpers/api.js';
 import Auth from '../../store/auth.js';
 import User from '../../store/user.js';
 import Logo from '../../components/Logo.vue';
+import { FormFactory } from '../../helpers/Form.js';
 
 class SocialButton {
   constructor(color) {
@@ -113,8 +119,7 @@ export default {
         google: new SocialButton('is-danger')
       },
       loading: false, //Used to trigger the errors because it will force the render event
-      errors: {},
-      form: {
+      frm: FormFactory.makeForm({
         name: '',
         last_name: '',
         cpf: '',
@@ -122,7 +127,7 @@ export default {
         email: '',
         password: '',
         password_confirmation: ''
-      }
+      })
     }
   },
   mounted() {
@@ -132,7 +137,7 @@ export default {
   },
   methods: {
     checkCPF() {
-      this.form.cpf = this.form.cpf.replace(/\D/g, '');
+      this.frm.data.cpf = this.frm.data.cpf.replace(/\D/g, '');
     },
     loadSocialButtons() {
       this.getSocialRegisterURL('facebook');
@@ -162,13 +167,9 @@ export default {
      */
     register() {
       this.loading = true;
-      // Limpa os erros
-      for (let field in this.errors) {
-        this.errors[field] = '';
-      }
-
+      this.frm.resetErrors();
       // Tenta registrar
-      post('/auth/signup', this.form)
+      post('/auth/signup', this.frm.data)
         .then(res => {
           Auth.set(res.data.tokens.token, res.data.tokens.refresh_token);
           User.load(res.data.user);
@@ -179,9 +180,10 @@ export default {
           // Trata os erros
           switch (err.response.status) {
             case 400: // Bad Request - Erros de validação
-              err.response.data.errors.forEach(error => {
-                this.errors[error.field] = error.message;
-              });
+              let errs = {};
+              for (let error of err.response.data.errors)
+                errs[error.field] = error.message;
+              this.frm.setErrors(errs);
               break;
           }
         })
@@ -191,7 +193,8 @@ export default {
     }
   },
   components: {
-    'app-logo': Logo
+    'app-logo': Logo,
+    'app-datepicker': DatePicker
   }
 }
 </script>

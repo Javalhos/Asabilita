@@ -13,6 +13,11 @@ body {
   height: 100%;
 }
 
+
+.custom-file-input:lang(pt-BR)~.custom-file-label::after {
+    content: "Buscar Imagem";
+  }
+
 .navbar-dark button:focus .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255, 136, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
@@ -35,19 +40,15 @@ body {
   }
 }
 
-
 .dropdown-toggle::after {
 	color: white;
 }
 
-.container-fluid {
-	padding-right: 0px;
-	padding-left: 0px; 
-}
-
 /* Body */
 body { /* fallback for old browsers */
-	background: rgb(38, 153, 247); 
+	.admin {
+		background: rgb(248, 248, 248); 
+	}
 	background: -webkit-linear-gradient(right, rgb(144, 146, 146), rgb(253, 167, 96));
 	background: -moz-linear-gradient(right, rgb(144, 146, 146), rgb(255, 188, 134));
 	background: -o-linear-gradient(right, rgb(144, 146, 146), rgb(255, 188, 134));
@@ -57,15 +58,119 @@ body { /* fallback for old browsers */
 	-moz-osx-font-smoothing: grayscale;     
 }
 
-main {
-	padding-right: 20px;
-	padding-left: 20px;
-	position: relative;
+body.bg-color-acc {
+	background: #FFFFFF;
+	background: -webkit-linear-gradient(right, rgb(193, 194, 194), rgb(255, 206, 167));
+	background: -moz-linear-gradient(right, rgb(193, 194, 194), rgb(255, 206, 167));
+	background: -o-linear-gradient(right, rgb(193, 194, 194), rgb(255, 206, 167));
+	background: linear-gradient(to left, rgb(193, 194, 194), rgb(255, 206, 167));
+	font-family: "Roboto", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;   
 }
+
+// main {
+// 	padding-right: 20px;
+// 	padding-left: 20px;
+// 	position: relative;
+// }
 
 .card {
 	background-color: #4746467c;
 	color: rgb(211, 208, 208);
+}
+
+/* admin.html */
+// main.admin {
+// 	padding-right: 0%;
+// 	padding-left: 0%;
+// }
+
+body.bg-adm{
+	background: rgb(240, 240, 240);
+	height: 100%;
+}
+
+.nav-sidebar-items {
+	height: 100vh;
+	position: fixed;
+	
+	color: #FFFFFF;
+	background-color: #474646;
+}
+
+// a.nav-link {
+// 	color: rgb(255, 255, 255) !important;
+// 	font-size: 16px;
+// }
+
+.admin-card {
+	color: #000000;
+	border-color: #bdbbbb;
+	background-color: #FFFFFF;
+	border: 1px solid rgba(255, 102, 1, 0.267);
+}
+
+.btn-dark-admin {
+	color: #fff;
+	background-color: #ffa742;
+	border-color: #ffa742;
+}
+
+.btn-dark-admin:hover {
+	color: #fff;
+	background-color: #ff8800;
+	border-color: #ff8800;
+}
+
+.header-admin {
+	background-color: #ffac4ea2;
+}
+
+.btn-secondary {
+	color: #fff;
+	background-color: #ffa742;
+	border-color: #ffa742;
+}
+
+.btn-secondary:hover {
+	color: #fff;
+	background-color: #ff8800;
+	border-color: #ff8800;
+}
+
+.btn-secondary:focus, .btn-secondary.focus {
+	box-shadow: 0 0 0 0.2rem #ffc179;
+}
+
+
+.btn-secondary:not(:disabled):not(.disabled):active, .btn-secondary:not(:disabled):not(.disabled).active,
+.show > .btn-secondary.dropdown-toggle {
+	color: #fff;
+	background-color: #ff8800;
+	border-color: #ff8800;
+} 
+
+.btn-secondary:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-secondary.dropdown-toggle:focus {
+	box-shadow: 0 0 0 0.2rem #ff8800;
+}
+
+.dash-admin {
+	display: flex;
+	justify-content: space-around;
+}
+
+.select-admin {
+	width: 62rem;
+}
+
+.form-control:focus {
+	color: #495057;
+	background-color: #fff;
+	border-color: #ffb380;
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(255, 115, 0, 0.25);
 }
 
 /* footer */
@@ -89,16 +194,16 @@ footer {
 
 .card-login {
 	background-color: #FFFFFF;
+	width: 360px;
 	padding: 2% 0 0;
 	margin: auto;
 }
 
-.card-register{
-	background-color: #FFFFFF;
-	// width: 600px;
-	padding: 2% 0 0;
-	margin: auto;
-}
+// .card-register{
+// 	height: 100%;
+// 	padding: 2% 0 0;
+// 	margin: auto;
+// }
 
 .btn-outline-info {
 	color: #f7901a;
@@ -111,10 +216,6 @@ footer {
 	color: #fff;
 	background-color: #f7901a;
 	border-color: #f7901a;
-}
-
-button:focus {
-  outline-color: rgb(255, 136, 0);
 }
 
 .btn-outline-info:focus, .btn-outline-info.focus {
@@ -136,4 +237,27 @@ button:focus {
 .btn-outline-info:not(:disabled):not(.disabled):active:focus, .btn-outline-info:not(:disabled):not(.disabled).active:focus,
 .show > .btn-outline-info.dropdown-toggle:focus {
 	box-shadow: 0 0 0 0.2rem rgba(255, 160, 35, 0.5);
+}
+
+
+a {
+	color:#FFFFFF;
+}
+
+a:hover {
+	color: #f7901a
+}
+
+.table .thead-dark th {
+	color: rgb(0, 0, 0);
+	background-color: #fad3b3;
+	border-color: #ffecc8;
+}
+
+.card-link {
+	color: #ff8800;
+}
+
+.card {
+	border: 1px solid rgba(255, 123, 0, 0.438);
 }

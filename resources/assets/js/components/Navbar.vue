@@ -1,8 +1,7 @@
 <template>
   <header class="header shadow">
-    <div class="container-fluid">
       <!-- Nav -->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav :class="`navbar ${extraClass} navbar-expand-lg navbar-dark bg-dark`">
         <app-logo></app-logo>
 
         <!-- Navbar Collapse -->
@@ -82,7 +81,6 @@
         </ul>
       </nav>
       <!-- End Nav Secundária -->
-    </div>
   </header>
 </template>
 
@@ -93,7 +91,7 @@ import User from '../store/user.js';
 import Logo from "./Logo.vue";
 
 export default {
-  props: [ 'extended' ],
+  props: [ 'extended', 'extraClass' ],
   data() {
     return {
       logoutLoading: false,

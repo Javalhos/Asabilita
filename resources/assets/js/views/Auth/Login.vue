@@ -1,5 +1,5 @@
 <template>
-	<main class="container h-75">
+	<main class="container-fluid h-75">
 		<div class="row mt-5 h-100 align-items-center justify-content-center">
       <div class="col-md-4">
         <div class="card-login shadow">
@@ -8,18 +8,18 @@
             <form class="p-2" @submit.prevent="login">        
               <div class="form-group">
                 <input type="email"
-                  :class="{ 'form-control form-control-lg': true, 'is-invalid': !!errors.email }"
+                  :class="{ 'form-control form-control-lg': true, 'is-invalid': !!frm.err.email }"
                   placeholder="e-Mail"
-                  v-model="form.email">
-                <small class="form-text text-danger" v-show="!!errors.email">{{ errors.email }}</small>
+                  v-model="frm.data.email">
+                <small class="form-text text-danger" v-show="!!frm.err.email">{{ frm.err.email }}</small>
               </div>
     
               <div class="form-group">
                 <input type="password"
-                  :class="{ 'form-control form-control-lg': true, 'is-invalid': !!errors.password }"
+                  :class="{ 'form-control form-control-lg': true, 'is-invalid': !!frm.err.password }"
                   placeholder="Senha"
-                  v-model="form.password">
-                <small class="form-text text-danger" v-show="!!errors.password">{{ errors.password }}</small>
+                  v-model="frm.data.password">
+                <small class="form-text text-danger" v-show="!!frm.err.password">{{ frm.err.password }}</small>
               </div>
     
               <button type="submit" class="btn btn-lg btn-dark btn-block">
@@ -41,6 +41,7 @@ import { post, get } from '../../helpers/api.js';
 import Auth from '../../store/auth.js';
 import User from '../../store/user.js';
 import Logo from '../../components/Logo.vue';
+import { FormFactory } from '../../helpers/Form.js';
 
 export default {
   data() {
@@ -48,11 +49,10 @@ export default {
       blockSocial: true,
       useSocial: true,
       loading: false,
-      errors: {},
-      form: {
+      frm: FormFactory.makeForm({
         email: '',
         password: ''
-      }
+      })
     }
   },
   methods: {
@@ -61,12 +61,10 @@ export default {
     },
     login() {
       // Limpa Erros
-      for (let field in this.form) {
-        this.errors[field] = '';
-      }
+      this.frm.resetErrors();
       // Tenta registrar
       this.loading = true;
-      post('/auth/signin', this.form)
+      post('/auth/signin', this.frm.data)
         // Sucesso
         .then(res => {
           let { data } = res;
@@ -80,19 +78,21 @@ export default {
         })
         // Erro
         .catch(err => {
+          let errors = {};
           if (!err.response)
             return;
           switch (err.response.status) {
             case 400:
-              err.config.data.errors.forEach(error => {
-                this.errors[error.field] = error.message;
-              });
+              for (let error in err.config.data.errors) {
+                errors[error.field] = error.message;
+              }
+              this.frm.setErrors(errors);
               break;
             case 401:
-              for (let error of err.response.data) {
-                console.log(error);
-                this.errors[error.field] = error.message;
+              for (let error in err.config.data) {
+                errors[error.field] = error.message;
               }
+              this.frm.setErrors(errors);
               break;
           }
         })

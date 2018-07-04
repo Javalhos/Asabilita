@@ -1,63 +1,57 @@
 <template>
-  <div>
-    <app-navbar :extended="false"></app-navbar>
-    <main class="container mt-3">
-      <div class="row">
-        <div class="col-3">
-          <div class="card">
-            <div class="card-body">
-              <div class="list-group list-group-flush">
-                <router-link to="/admin" class="list-group-item list-group-item-action">
-                  Dashoard
-                </router-link>
-                <router-link to="/admin/vehicles" class="list-group-item list-group-item-action">
-                  Vehicle Management
-                </router-link>
-                <router-link to="/admin/rentals" class="list-group-item list-group-item-action">
-                  Rental Management
-                </router-link>
-                <router-link to="/admin/employees" class="list-group-item list-group-item-action">
-                  Employee Management
-                </router-link>
-                <router-link to="/admin/users" class="list-group-item list-group-item-action">
-                  User Management
-                </router-link>
-              </div>
-            </div>
+  <div class="h-100">
+    <app-navbar :extended="false" :extraClass="'fixed-top shadow'"></app-navbar>
+    <main class="container-fluid" style="margin-top: 56px">
+        <div class="row">
+          <div class="col-md-2 pl-0">
+            <app-admin-nav></app-admin-nav>
+          </div>
+          <!-- card -->
+          <div class="col pl-0 pt-5 pr-5 pb-5">
+            <router-view></router-view>            
           </div>
         </div>
-        <div class="col">
-          <router-view></router-view>
-        </div>
-      </div>
     </main>
   </div>
 </template>
 
 <script>
 import Navbar from '../components/Navbar.vue';
+import AdminNav from './Admin/AdminNav.vue';
+import { AppEvent } from '../helpers/AppEvent';
+import shared from '../store/shared';
 
 export default {
+  mounted() {
+    shared.bgClass = 'admin';
+  },
+  destroyed() {
+    shared.bgClass = '';
+  },
   components: {
-    'app-navbar': Navbar
+    'app-navbar': Navbar,
+    'app-admin-nav': AdminNav
   }
 }
 </script>
 
-<style scoped>
-  .list-group.list-group-flush .list-group-item {
-    background: transparent;
-    color: #ccc;
+<style>
+::-webkit-scrollbar {
+    width: 6px;
+}
 
-  }
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
 
-  .list-group.list-group-flush .list-group-item.active {
-    background: transparent;
-    color: #fff;
-    border-color: #fff;
-  }
-
-  .list-group.list-group-flush .list-group-item:hover {
-    color: #ddd;
-  }
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
 </style>

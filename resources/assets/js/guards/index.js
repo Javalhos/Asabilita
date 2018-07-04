@@ -1,0 +1,2 @@
+export { multiGuard } from './MultiGuard';
+
