@@ -26,15 +26,22 @@
       <div class="datepicker ml-4 mb-3">
         <div class="row">
           <div class="col">
-            De
-            <input type="date" class="form-control md-6"> até
-            <input type="date">
+            <div class="form-row">
+              <div class="form-group col-6">
+                <label class="form-control-label mb-0">De</label>
+                <input type="date" class="form-control" placeholder="Escolha uma data...">
+              </div>
+              <div class="form-group col-6">
+                <label for="" class="from-control-label mb-0">Até</label>
+                <input type="date" class="form-control">
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="table-responsive">
-        <table class="table ml-3 mr-3 mb-3">
+        <table class="table">
           <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
@@ -61,37 +68,6 @@
               <td></td>
               <td></td>
               <td>
-                <a href="#" class="card-link">Alterar</a>
-                <a href="#" class="card-link">Excluir</a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <a href="#" class="card-link">Alterar</a>
-                <a href="#" class="card-link">Excluir</a>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>
-                <a href="#" class="card-link">Alterar</a>
                 <a href="#" class="card-link">Excluir</a>
               </td>
             </tr>

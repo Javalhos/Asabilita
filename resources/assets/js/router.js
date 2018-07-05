@@ -3,11 +3,11 @@ import VueRouter from 'vue-router';
 
 import {
   // Static Pages
-  StaticPages, Home, NotFound, VehicleView,
+  StaticPages, Home, NotFound, VehicleView, About, Contact,
   // Auth Pages
   Auth, Register, Login,
   // Admin Pages
-  Admin, Dashboard,
+  Admin, Dashboard, AllAccounts, Report,
   // Vehicle Management Pages
   NewVehicle, SearchVehicle,
 } from './views';
@@ -30,11 +30,16 @@ export const router = new VueRouter({
       // Vehicle Management
       { path: 'vehicle', component: SearchVehicle },
       { path: 'vehicle/new', component: NewVehicle },
+      //Account Management
+      { path: 'accounts', component: AllAccounts},
+      { path: 'report', component: Report}
     ] },
     // Root Routes
     { path: '/', component: StaticPages, children: [
       { path: '', component: Home },
-      { path: 'vehicle/:vid', component: VehicleView}
+      { path: 'vehicle/:vid', component: VehicleView},
+      { path: 'about', component: About},
+      { path: 'contact', component: Contact}
     ] },
     // Exception Handler Routes
     { path: '/not-found', component: NotFound },

@@ -27,11 +27,11 @@
         </a>
         <ul class="sidenav-second-level collapse show" id="collapseExamplePages" style="">
           <li>
-            <a href="#">Todas as Contas</a>
+            <router-link exact to="/admin/accounts">Todas as Contas</router-link>
           </li>
-          <li>
-            <a href="#">Alterar</a>
-          </li>
+          <!-- <li> -->
+            <!-- <a href="#">Alterar</a> -->
+          <!-- </li> -->
         </ul>
       </li>
       <!-- Relatórios -->
@@ -43,7 +43,7 @@
         </a>
         <ul class="sidenav-second-level collapse show" id="collapseMulti" style="">
           <li>
-            <router-link to="/admin/reports" tag="a">Alugueis</router-link>
+            <router-link to="/admin/report" tag="a">Alugueis</router-link>
           </li>
         </ul>
       </li>

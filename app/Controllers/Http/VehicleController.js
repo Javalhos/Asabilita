@@ -1,9 +1,9 @@
 'use strict'
 
 const Vehicle = use('App/Models/Vehicle');
-
+const Rental = use('App/Models/Rental');
 class VehicleController {
-  async index () {
+  async index() {
     let vehicles = await Vehicle.all();
 
     return {
@@ -11,18 +11,42 @@ class VehicleController {
     };
   }
 
-  async show ({ params, response }) {
+  async show({
+    params,
+    response,
+    auth
+  }) {
     let vehicle = await Vehicle.find(params.id);
+    let user = null;
+
+    try {
+      user = await auth.getUser();
+    } catch (e) {
+      user = null;
+    }
+
+    if (user && vehicle && vehicle.status == 'RENTED') {
+      let rental = await vehicle.rentals().findBy('user_id', user.id);
+      if (!rental)
+        return response.status(404).send({
+          error: 'Vehicle is Rented'
+        });
+    }
 
     if (!vehicle) {
-      return response.status(404).send({error: `Vehicle with Id ${params.id} doesn't exist in database.`});
+      return response.status(404).send({
+        error: `Vehicle with Id ${params.id} doesn't exist in database.`
+      });
     }
     return {
       data: vehicle
     }
   }
 
-  async store ({ request, response }) {
+  async store({
+    request,
+    response
+  }) {
     try {
       let vehicle = Vehicle.create(request.only([
         'license_plate', 'brand', 'model',
@@ -44,7 +68,7 @@ class VehicleController {
     }
   }
 
-  async stats () {
+  async stats() {
     let available = await Vehicle.query().whereIn('status', [
       'AVAILABLE', 'RENTED'
     ]);
@@ -58,15 +82,30 @@ class VehicleController {
 
   }
 
-  async destroy ({ params, response }) {
+  async destroy({
+    params,
+    response
+  }) {
     let vehicle = await Vehicle.find(params.id);
 
     if (!vehicle)
-      return response.badRequest({error: 'Invalid ID'});
+      return response.badRequest({
+        error: 'Invalid ID'
+      });
 
     vehicle.delete();
     return {
       message: 'Vehicle deleted Successfully!'
+    };
+  }
+
+  async find({
+    params
+  }) {
+    let vehicles = await Vehicle.query().where('model', 'like', params.model).fetch();
+
+    return {
+      vehicles
     };
   }
 }

@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
 
       <!-- Carousel -->
-      <div class="col-8">
+      <div class="col">
         <div id="carouselCars" class="carousel slide mt-3" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselCars" data-slide-to="0" class="active"></li>
@@ -41,31 +41,24 @@
 
         </div>
       </div>
-
+    </div>
+    <div class="row">
       <!-- Card -->
-      <div class="offset-1 col-3">
-        <div class="card">
-          <div class="card-header">
-            Outros disponíveis para aluguel:
-          </div>
+      <div class="col-4"
+        v-for="vehicle in vehicles"
+        :key="vehicle.id">
+        <router-link tag="div"
+          style="cursor:pointer"
+          :to="`/vehicle/${vehicle.id}`"
+          class="card text-white bg-dark mt-3">
+          <img class="card-img-top" :src="vehicle.image">
 
           <div class="card-body">
-            <div class="container" v-for="vehicle in vehicles" :key="vehicle.id">
-              
-              <div class="card text-white bg-dark">
-                <img class="card-img-top" :src="vehicle.image">
-
-                <div class="card-body">
-                  <h5 class="card-title">{{ vehicle.model.toUpperCase() }}</h5>
-                  <p class="card-text">Diária - {{ `R$ ${String(vehicle.price.toFixed(2)).replace(/\,/g, '^').replace(/\./g, ',').replace(/\^/g, '.')}` }}</p>
-                </div>
-              </div>
-
-            </div>
+            <h5 class="card-title">{{ vehicle.model.toUpperCase() }}</h5>
+            <p class="card-text">Diária - {{ `R$ ${String(vehicle.price.toFixed(2)).replace(/\,/g, '^').replace(/\./g, ',').replace(/\^/g, '.')}` }}</p>
           </div>
-        </div>
+        </router-link>
       </div>
-
     </div>
   </div>
 </template>
@@ -99,8 +92,8 @@ export default {
     return {
       loading: false,
       vehicles: [],
-      authState: Auth.state,
-    }
+      authState: Auth.state
+    };
   }
-}
+};
 </script>

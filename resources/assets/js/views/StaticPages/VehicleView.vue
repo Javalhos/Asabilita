@@ -16,7 +16,19 @@
                 <p class="card-text">Categoria: {{ vehicle.category | appCategory }}</p>
                 <p class="card-text">Ano: {{ vehicle.year }}</p>
                 <p class="card-text">Valor da Diária: {{ vehicle.price | appCurrency }}</p>
-                <button @click="alugar" class="btn btn-lg btn-dark-admin">Alugar</button>
+                <button @click="alugar"
+                  class="btn btn-lg btn-dark-admin"
+                  v-if="!rentCode">
+                  <span v-show="loading">
+                    <i class="fas fa-circle-notch fa-lg fa-fw fa-spin"></i>
+                  </span>
+                  <span v-show="!loading">Alugar</span>
+                </button>
+                <button class="btn btn-lg btn-dark"
+                  disabled
+                  v-else>
+                  Código do Aluguel: {{ rentCode }}
+                </button>
               </div>
             </div>
           </div>
@@ -27,37 +39,54 @@
 </template>
 
 <script>
-import { get } from '../../helpers/api.js';
-import * as filters from '../../helpers/filters.js';
+import { post, get } from '../../helpers/api.js';
+import { appCategory, appCurrency } from '../../helpers/filters.js';
 import auth from '../../store/auth.js';
 
 export default {
-  filters,
+  filters: {
+    appCategory,
+    appCurrency
+  },
   mounted() {
     this.loadVehicle();
   },
   data() {
     return {
       authState: auth.state,
-      vehicle: null
+      vehicle: null,
+      rentCode: '',
+      loading: false
     };
   },
   methods: {
     alugar() {
-      if (!auth.isLoggedIn)
+      if (!auth.isLoggedIn) {
         alert('Faça login para continuar!');
-      else
-        alert('Já pode retirar o carro na loja!')
+        return;
+      } else {
+        this.loading = true;
+        post(`/rent/${this.$route.params.vid}`)
+          .then(res => {
+            this.rentCode = res.data.code;
+          })
+          .catch(err => {
+            console.log(err);
+          })
+          .finally(() => {
+            this.loading = false;
+          });
+      }
     },
     loadVehicle() {
       get(`/vehicle/${this.$route.params.vid}`)
         .then(res => {
-          this.vehicle = res.data.data
+          this.vehicle = res.data.data;
         })
         .catch(err => {
           console.log(err);
         });
     }
   }
-}
+};
 </script>

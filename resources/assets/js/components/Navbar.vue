@@ -22,9 +22,6 @@
             <router-link to='/admin' tag="li" v-if="currentUser.role === 'ADMIN'">
               <a class="nav-link">Admin</a>
             </router-link>
-            <router-link to="my-account" tag="li" class="nav-item">
-              <a class="nav-link">Minha Conta</a>
-            </router-link>
             <li class="nav-item">
               <a href="" @click.prevent="logout" class="nav-link" v-if="!logoutLoading">Sair</a>
               <a href="#" class="nav-link" v-else>
@@ -51,33 +48,6 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/">HOME</router-link>
           </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle"
-              data-toggle="dropdown"
-              href="#"
-              role="button"
-              aria-haspopup="true"
-              aria-expanded="false">
-              FROTA
-            </a>
-            <div class="dropdown-menu shadow">
-              <router-link to="/category/small" class="dropdown-item">Pequenos</router-link>
-              <router-link to="/category/hatch" class="dropdown-item">Hatch</router-link>
-              <router-link to="/category/sedan" class="dropdown-item">Sedã</router-link>
-              <router-link to="/category/suv" class="dropdown-item">SUV</router-link>
-              <router-link to="/category/luxury" class="dropdown-item">Luxo</router-link>
-              <router-link to="/category/sporting" class="dropdown-item">Esportivos</router-link>
-              <div class="dropdown-divider"></div>
-              <router-link to="/category/all" class="dropdown-item">Todos</router-link>
-            </div>
-          </li>
-          <li class="nav-item">
-            <router-link to="about" class="nav-link">SOBRE NÓS</router-link>
-          </li>
-          <li class="nav-item mr-2">
-            <router-link to="contact" class="nav-link">CONTATO</router-link>
-          </li>
         </ul>
       </nav>
       <!-- End Nav Secundária -->
@@ -88,10 +58,10 @@
 import { post } from '../helpers/api.js';
 import Auth from '../store/auth.js';
 import User from '../store/user.js';
-import Logo from "./Logo.vue";
+import Logo from './Logo.vue';
 
 export default {
-  props: [ 'extended', 'extraClass' ],
+  props: ['extended', 'extraClass'],
   data() {
     return {
       logoutLoading: false,
@@ -111,5 +81,5 @@ export default {
   components: {
     'app-logo': Logo
   }
-}
+};
 </script>

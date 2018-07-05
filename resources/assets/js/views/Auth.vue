@@ -1,6 +1,6 @@
 <template>
   <div class="h-100">
-    <app-navbar :extended="false"></app-navbar>
+    <app-navbar :extended="true"></app-navbar>
     <router-view></router-view>
   </div>
 </template>

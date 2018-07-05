@@ -52,7 +52,7 @@ class Form {
       }
 
       this._errors.messages[key] = errors[key];
-    }
+    }FormFactory
   }
 }
 
