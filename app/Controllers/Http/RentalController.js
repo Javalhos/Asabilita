@@ -4,15 +4,12 @@ const Vehicle = use('App/Models/Vehicle');
 const Rental = use('App/Models/Rental');
 
 class RentalController {
-  async store({
-    auth,
-    response,
-    params
-  }) {
-    console.log('HERE');
-    const user = auth.current.user;
+  async store({ auth, response, params }) {
     let vehicle;
-    console.log('THERE');
+    
+    const user = auth.current.user;
+    console.log(user)
+    
     try {
       vehicle = await Vehicle.find(params.id);
     } catch (e) {
@@ -20,12 +17,10 @@ class RentalController {
     }
 
     if (!vehicle)
-      return response.status(404).send({
-        message: 'Vehicle not Found!'
-      });
+      return response.status(404).send({ message: 'Vehicle not Found!' })
 
-    let newCode = `${user.id}-${vehicle.id}-${(new Date).getTime()}`;
-    console.log('ALMOST THERE');
+    let newCode = `${user.id}-${vehicle.id}-${(new Date).getTime()}`
+
     let rental = await Rental.create({
       user_id: user.id,
       vehicle_id: vehicle.id,
@@ -34,17 +29,14 @@ class RentalController {
       status: 'NOT_CONFIRMED'
     });
 
-
     if (rental) {
       vehicle.status = 'RENTED';
       vehicle.save();
-      return response.status(201).send({
-        code: newCode
-      });
+
+      return response.status(201).send({ code: newCode });
     }
-    return response.status(500).send({
-      message: 'Failed to add rental registry'
-    });
+
+    return response.status(500).send({ message: 'Failed to add rental registry' });
   }
 }
 

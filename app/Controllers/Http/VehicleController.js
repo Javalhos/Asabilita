@@ -2,6 +2,7 @@
 
 const Vehicle = use('App/Models/Vehicle');
 const Rental = use('App/Models/Rental');
+
 class VehicleController {
   async index() {
     let vehicles = await Vehicle.all();
@@ -11,33 +12,26 @@ class VehicleController {
     };
   }
 
-  async show({
-    params,
-    response,
-    auth
-  }) {
+  async show({ params, response, auth }) {
     let vehicle = await Vehicle.find(params.id);
     let user = null;
 
     try {
-      user = await auth.getUser();
+      user = await auth.current.user;
     } catch (e) {
       user = null;
     }
 
     if (user && vehicle && vehicle.status == 'RENTED') {
       let rental = await vehicle.rentals().findBy('user_id', user.id);
+
       if (!rental)
-        return response.status(404).send({
-          error: 'Vehicle is Rented'
-        });
+        return response.status(404).send({ error: 'Vehicle is Rented' });
     }
 
-    if (!vehicle) {
-      return response.status(404).send({
-        error: `Vehicle with Id ${params.id} doesn't exist in database.`
-      });
-    }
+    if (!vehicle)
+      return response.status(404).send({ error: `Vehicle with Id ${params.id} doesn't exist in database.` });
+
     return {
       data: vehicle
     }
