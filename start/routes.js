@@ -16,6 +16,7 @@ Route.group(() => {
 
   // Rental Routes
   Route.post('/rent/:id', 'RentalController.store').middleware(['auth']);
+  Route.get('/rentals', 'RentalController.index').middleware(['auth'])
 
   // Vehicle Routes
   Route.get('/vehicle/stats', 'VehicleController.stats');

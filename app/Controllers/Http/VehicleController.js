@@ -37,10 +37,7 @@ class VehicleController {
     }
   }
 
-  async store({
-    request,
-    response
-  }) {
+  async store({ request, response }) {
     try {
       let vehicle = Vehicle.create(request.only([
         'license_plate', 'brand', 'model',
@@ -50,10 +47,7 @@ class VehicleController {
       ]));
 
       // Return status 201 (Created)
-      return response.status(201).json({
-        message: 'Vehicle created successfully',
-        vehicle
-      });
+      return response.status(201).json({ message: 'Vehicle created successfully', vehicle });
     } catch (e) {
       console.log(e);
       return response.status(500).json({

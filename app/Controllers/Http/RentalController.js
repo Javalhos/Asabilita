@@ -4,6 +4,12 @@ const Vehicle = use('App/Models/Vehicle');
 const Rental = use('App/Models/Rental');
 
 class RentalController {
+  async index () {
+    let rentals = await Rental.all()
+
+    return { rentals }
+  }
+
   async store({ auth, response, params }) {
     let vehicle;
     

@@ -57,18 +57,18 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr v-for="vehicle in vehicles" :key="vehicle.id">
+              <th scope="row">{{ vehicle.id }}</th>
+              <td>{{ vehicle.license_plate }}</td>
+              <td>{{ vehicle.brand }}</td>
+              <td>{{ vehicle.model }}</td>
+              <td>{{ vehicle.year }}</td>
+              <td>{{ vehicle.category }}</td>
+              <td>{{ vehicle.status }}</td>
+              <td>{{ vehicle.mileage }}</td>
+              <td>{{ vehicle.buy_price }}</td>
               <td>
-                <a href="#" class="card-link">Excluir</a>
+                <a href="#" class="card-link" @click="deleteVehicle(idx, vehicle.id)">Excluir</a>
               </td>
             </tr>
           </tbody>
@@ -77,3 +77,34 @@
     </div>
   </div>
 </template>
+
+<script>
+import { get, del } from '../../../helpers/api'
+
+export default {
+  data () {
+    return {
+      vehicles: []
+    }
+  },
+  mounted () {
+    get('/vehicle')
+      .then(res => {
+        const { data } = res.data
+
+        if (data)
+          this.vehicles = data
+      })
+      .catch(err => console.error(err))
+  },
+  methods: {
+    deleteVehicle (idx, id) {
+      del(`/vehicle/${id}`)
+        .then(res => {
+          this.vehicles.splice(idx, 1)
+        })
+        .catch(err => console.error(e))
+    }
+  }
+}
+</script>

@@ -43,7 +43,7 @@
         </a>
         <ul class="sidenav-second-level collapse show" id="collapseMulti" style="">
           <li>
-            <router-link to="/admin/report" tag="a">Alugueis</router-link>
+            <router-link to="/admin/report" tag="a">Veículos</router-link>
           </li>
         </ul>
       </li>

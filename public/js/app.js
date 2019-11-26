@@ -78550,7 +78550,7 @@ var render = function() {
                   _c(
                     "router-link",
                     { attrs: { to: "/admin/report", tag: "a" } },
-                    [_vm._v("Alugueis")]
+                    [_vm._v("Veículos")]
                   )
                 ],
                 1
@@ -79146,7 +79146,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(11)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(489)
 /* template */
 var __vue_template__ = __webpack_require__(473)
 /* template functional */
@@ -79194,170 +79194,199 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "card admin-card mt-3 mr-3" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group" }, [
+      _vm._m(1),
+      _vm._v(" "),
+      _vm._m(2),
+      _vm._v(" "),
+      _c("div", { staticClass: "table-responsive" }, [
+        _c("table", { staticClass: "table" }, [
+          _vm._m(3),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.vehicles, function(vehicle) {
+              return _c("tr", { key: vehicle.id }, [
+                _c("th", { attrs: { scope: "row" } }, [
+                  _vm._v(_vm._s(vehicle.id))
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(vehicle.license_plate))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(vehicle.brand))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(vehicle.model))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(vehicle.year))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(vehicle.category))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(vehicle.status))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(vehicle.mileage))]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(vehicle.buy_price))]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "card-link",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          return _vm.deleteVehicle(_vm.idx, vehicle.id)
+                        }
+                      }
+                    },
+                    [_vm._v("Excluir")]
+                  )
+                ])
+              ])
+            }),
+            0
+          )
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card admin-card mt-3 mr-3" }, [
+    return _c(
+      "div",
+      {
+        staticClass: "card-header header-admin",
+        staticStyle: { "font-size": "22px" }
+      },
+      [_c("strong", [_vm._v("Relatório de Veículos")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "dropdown mt-3 ml-3 mb-3" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary dropdown-toggle",
+          attrs: {
+            type: "button",
+            id: "dropdownMenuButton",
+            "data-toggle": "dropdown",
+            "aria-haspopup": "true",
+            "aria-expanded": "false"
+          }
+        },
+        [_vm._v("\n        Opções de Busca\n      ")]
+      ),
+      _vm._v(" "),
       _c(
         "div",
         {
-          staticClass: "card-header header-admin",
-          staticStyle: { "font-size": "22px" }
+          staticClass: "dropdown-menu",
+          attrs: { "aria-labelledby": "dropdownMenuButton" }
         },
-        [_c("strong", [_vm._v("Relatório de Veículos")])]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("div", { staticClass: "dropdown mt-3 ml-3 mb-3" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-secondary dropdown-toggle",
-              attrs: {
-                type: "button",
-                id: "dropdownMenuButton",
-                "data-toggle": "dropdown",
-                "aria-haspopup": "true",
-                "aria-expanded": "false"
-              }
-            },
-            [_vm._v("\n        Opções de Busca\n      ")]
-          ),
+        [
+          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+            _vm._v("Em circulação")
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass: "dropdown-menu",
-              attrs: { "aria-labelledby": "dropdownMenuButton" }
-            },
-            [
-              _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-                _vm._v("Em circulação")
-              ]),
-              _vm._v(" "),
-              _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-                _vm._v("Disponíveis")
-              ]),
-              _vm._v(" "),
-              _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-                _vm._v("Em manutenção")
-              ]),
-              _vm._v(" "),
-              _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-                _vm._v("Mais alugados")
-              ]),
-              _vm._v(" "),
-              _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-                _vm._v("Alugados por período")
-              ]),
-              _vm._v(" "),
-              _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-                _vm._v("À venda")
-              ]),
-              _vm._v(" "),
-              _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
-                _vm._v("Vendidos")
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "datepicker ml-4 mb-3" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col" }, [
-              _c("div", { staticClass: "form-row" }, [
-                _c("div", { staticClass: "form-group col-6" }, [
-                  _c("label", { staticClass: "form-control-label mb-0" }, [
-                    _vm._v("De")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: { type: "date", placeholder: "Escolha uma data..." }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group col-6" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "from-control-label mb-0",
-                      attrs: { for: "" }
-                    },
-                    [_vm._v("Até")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: { type: "date" }
-                  })
-                ])
-              ])
-            ])
+          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+            _vm._v("Disponíveis")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+            _vm._v("Em manutenção")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+            _vm._v("Mais alugados")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+            _vm._v("Alugados por período")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+            _vm._v("À venda")
+          ]),
+          _vm._v(" "),
+          _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+            _vm._v("Vendidos")
           ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "table-responsive" }, [
-          _c("table", { staticClass: "table" }, [
-            _c("thead", { staticClass: "thead-dark" }, [
-              _c("tr", [
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Placa")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Marca")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Modelo")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Ano")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Categoria")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Status")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [
-                  _vm._v("Quilometragem")
-                ]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Valor")]),
-                _vm._v(" "),
-                _c("th", { attrs: { scope: "col" } }, [_vm._v("Editar")])
-              ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "datepicker ml-4 mb-3" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col" }, [
+          _c("div", { staticClass: "form-row" }, [
+            _c("div", { staticClass: "form-group col-6" }, [
+              _c("label", { staticClass: "form-control-label mb-0" }, [
+                _vm._v("De")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "date", placeholder: "Escolha uma data..." }
+              })
             ]),
             _vm._v(" "),
-            _c("tbody", [
-              _c("tr", [
-                _c("th", { attrs: { scope: "row" } }, [_vm._v("1")]),
-                _vm._v(" "),
-                _c("td"),
-                _vm._v(" "),
-                _c("td"),
-                _vm._v(" "),
-                _c("td"),
-                _vm._v(" "),
-                _c("td"),
-                _vm._v(" "),
-                _c("td"),
-                _vm._v(" "),
-                _c("td"),
-                _vm._v(" "),
-                _c("td"),
-                _vm._v(" "),
-                _c("td"),
-                _vm._v(" "),
-                _c("td", [
-                  _c("a", { staticClass: "card-link", attrs: { href: "#" } }, [
-                    _vm._v("Excluir")
-                  ])
-                ])
-              ])
+            _c("div", { staticClass: "form-group col-6" }, [
+              _c(
+                "label",
+                { staticClass: "from-control-label mb-0", attrs: { for: "" } },
+                [_vm._v("Até")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-control",
+                attrs: { type: "date" }
+              })
             ])
           ])
         ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-dark" }, [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Placa")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Marca")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Modelo")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Ano")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Categoria")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Status")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Quilometragem")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Valor")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Editar")])
       ])
     ])
   }
@@ -85731,6 +85760,131 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 486 */,
+/* 487 */,
+/* 488 */,
+/* 489 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_api__ = __webpack_require__(18);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      vehicles: []
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    Object(__WEBPACK_IMPORTED_MODULE_0__helpers_api__["b" /* get */])('/vehicle').then(function (res) {
+      var data = res.data.data;
+
+
+      if (data) _this.vehicles = data;
+    }).catch(function (err) {
+      return console.error(err);
+    });
+  },
+
+  methods: {
+    deleteVehicle: function deleteVehicle(idx, id) {
+      var _this2 = this;
+
+      Object(__WEBPACK_IMPORTED_MODULE_0__helpers_api__["a" /* del */])('/vehicle/' + id).then(function (res) {
+        _this2.vehicles.splice(idx, 1);
+      }).catch(function (err) {
+        return console.error(e);
+      });
+    }
+  }
+});
 
 /***/ })
 /******/ ]);
