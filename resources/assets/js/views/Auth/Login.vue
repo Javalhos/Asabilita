@@ -68,7 +68,7 @@ export default {
         // Sucesso
         .then(res => {
           let { data } = res;
-          Auth.set(data.token, data.refreshToken);
+          Auth.set(data.token);
           get('/user/load')
             .then(resp => {
               User.clear();

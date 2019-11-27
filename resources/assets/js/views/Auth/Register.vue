@@ -171,7 +171,7 @@ export default {
       // Tenta registrar
       post('/auth/signup', this.frm.data)
         .then(res => {
-          Auth.set(res.data.tokens.token, res.data.tokens.refresh_token);
+          Auth.set(res.data.tokens.token);
           User.load(res.data.user);
           this.$router.push('/');
         })

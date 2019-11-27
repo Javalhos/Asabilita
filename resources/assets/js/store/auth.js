@@ -24,26 +24,22 @@ export default {
 
   initialize() {
     this.state.token = localStorage.getItem('aba_token');
-    this.state.refresh_token = localStorage.getItem('aba_refresh_token');
   },
 
-  set(token, refreshToken, remember = true) {
+  set(token, remember = true) {
     this.options.remember = !!remember;
 
     if (this.options.remember) {
       localStorage.setItem('aba_token', token);
-      localStorage.setItem('aba_refresh_token', refreshToken);
     } else {
       this.remove();
     }
 
     this.state.token = token;
-    this.state.refresh_token = refreshToken;
   },
 
   remove() {
     localStorage.removeItem('aba_token');
-    localStorage.removeItem('aba_refresh_token');
     this.initialize();
   }
 }

@@ -48,7 +48,6 @@ class AuthController {
     if (user) {
       let data = {
         tokens: await auth
-          .withRefreshToken()
           .generate(user),
         user: user.json()
       };
