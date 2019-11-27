@@ -20,6 +20,7 @@ class VehicleSchema extends Schema {
       table.enum('status', [
         'AVAILABLE',
         'RENTED',
+        'RESERVED',
         'MAINTENANCE',
         'FOR_SALE',
         'SOLD',
