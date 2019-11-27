@@ -30,6 +30,10 @@ class User extends Model {
     return this.hasMany('App/Models/Token')
   }
 
+  rentals () {
+    return this.hasMany('App/Models/Rental')
+  }
+
   json() {
     return {
       id: this.id,

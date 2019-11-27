@@ -156,7 +156,7 @@ export default {
             this.start = ''
             this.end = ''
             this.$router.push('/')
-            alert('Reserva efetuada com sucesso!')
+            alert(`Reserva efetuada com sucesso, ${this.rentCode}!`)
           })
           .catch(err => {
             console.log(err)

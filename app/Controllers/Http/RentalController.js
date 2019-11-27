@@ -17,12 +17,12 @@ class RentalController {
     if (!user)
       return response.status(500).send({ error: 'You must be logged' })
       
-    let rental = await Rental.find(params.id)
+    let rentals = await user.rentals().orderBy('created_at', 'DESC').fetch()
 
-    if (!rental)
+    if (!rentals)
       return response.status(500).send({ error: 'The rental does not exist' })
       
-    return rental
+    return rentals
   }
 
   async store ({ request, response, auth }) {
