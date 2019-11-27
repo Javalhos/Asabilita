@@ -4,20 +4,40 @@
       <li class="nav-item">
         <router-link exact to="/admin" class="nav-link">Dashboard</router-link>
       </li>
+	  <!-- Alugueis -->
+	  <li class="nav-item">
+		  <a class="nav-link nav-link-collapse"
+	  	  	data-toggle="collapse"
+	  		href="#collapseRentals"
+	  		data-parent="#exampleAccordion"
+	          aria-expanded="true">
+	  		<span class="nav-link-text">Alugueis</span>
+	        </a>
+	        <ul class="sidenav-second-level collapse show" id="collapseRentals" style="">
+	          <!-- <li>
+	            <router-link exact to="/admin/rental">Visualizar</router-link>
+	          </!-->
+	          <li>
+	            <router-link exact to="/admin/rental/confirm">Confirmar Reserva</router-link>
+	          </li>
+	        </ul>
+	  </li>
       <!-- Gerenciar Veículos -->
-      <a class="nav-link nav-link-collapse" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion"
-      aria-expanded="true">
-
-        <span class="nav-link-text">Gerenciar Veículos</span>
-      </a>
-      <ul class="sidenav-second-level collapse show" id="collapseComponents" style="">
-        <li>
-          <router-link exact to="/admin/vehicle">Visualizar</router-link>
-        </li>
-        <li>
-          <router-link exact to="/admin/vehicle/new">Cadastrar</router-link>
-        </li>
-      </ul>
+      <li class="nav-item">
+		  <a class="nav-link nav-link-collapse" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion"
+		        aria-expanded="true">
+		  
+		          <span class="nav-link-text">Gerenciar Veículos</span>
+		        </a>
+		        <ul class="sidenav-second-level collapse show" id="collapseComponents" style="">
+		          <li>
+		            <router-link exact to="/admin/vehicle">Visualizar</router-link>
+		          </li>
+		          <li>
+		            <router-link exact to="/admin/vehicle/new">Cadastrar</router-link>
+		          </li>
+		        </ul>
+	  </li>
       <!-- Gerenciar Contas -->
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Example Pages">
         <a class="nav-link nav-link-collapse" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion"

@@ -65,12 +65,35 @@ class RentalController {
 
     if (rental) {
       vehicle.status = 'RESERVED'
-      vehicle.save()
+      await vehicle.save()
 
       return response.status(201).send({ code: newCode })
     }
 
     return response.status(500).send({ message: 'Failed to add rental registry' })
+  }
+
+  async showByCode ({ params, response }) {
+    try {
+      const rental = await Rental.query()
+      .with('vehicle')
+      .where('code', params.code)
+      .where('status', 'NOT_CONFIRMED')
+      .first()
+      return response.send(rental)
+    } catch (e) {
+      console.log(e)
+    }
+    
+  }
+
+  async confirmRental ({ params, response }) {
+    const rental = await Rental.findBy('code', params.code)
+
+    rental.status = 'CONFIRMED'
+    await rental.save()
+
+    return response.send(rental)
   }
 }
 
