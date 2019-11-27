@@ -143,7 +143,6 @@ export default {
         alert('Faça login para continuar!')
         return
       } else {
-        console.log('Oi')
         this.loading = true
         post(`/reserve`, {
           start: this.start,
@@ -156,6 +155,8 @@ export default {
 
             this.start = ''
             this.end = ''
+            this.$router.push('/')
+            alert('Reserva efetuada com sucesso!')
           })
           .catch(err => {
             console.log(err)

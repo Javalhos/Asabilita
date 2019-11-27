@@ -68,7 +68,8 @@ export default {
             .catch(err => console.log(err))
 
         await get(`/rental/${this.user.id}`)
-            .then(res => { this.rentals.push(res.data) })
+            .then(res => { console.log(res.data) 
+            this.rentals.push(res.data) })
             .catch(err => console.log(err))
 
         console.log(this.rentals)

@@ -72669,11 +72669,11 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
   // Admin Routes
   { path: '/admin', meta: { auth: true, isAdmin: true }, component: __WEBPACK_IMPORTED_MODULE_2__views__["b" /* Admin */], children: [{ path: '', component: __WEBPACK_IMPORTED_MODULE_2__views__["f" /* Dashboard */] },
     // Vehicle Management
-    { path: 'vehicle', component: __WEBPACK_IMPORTED_MODULE_2__views__["n" /* SearchVehicle */] }, { path: 'vehicle/new', component: __WEBPACK_IMPORTED_MODULE_2__views__["i" /* NewVehicle */] },
+    { path: 'vehicle', component: __WEBPACK_IMPORTED_MODULE_2__views__["o" /* SearchVehicle */] }, { path: 'vehicle/new', component: __WEBPACK_IMPORTED_MODULE_2__views__["i" /* NewVehicle */] },
     //Account Management
-    { path: 'accounts', component: __WEBPACK_IMPORTED_MODULE_2__views__["c" /* AllAccounts */] }, { path: 'report', component: __WEBPACK_IMPORTED_MODULE_2__views__["m" /* Report */] }] },
+    { path: 'accounts', component: __WEBPACK_IMPORTED_MODULE_2__views__["c" /* AllAccounts */] }, { path: 'report', component: __WEBPACK_IMPORTED_MODULE_2__views__["n" /* Report */] }, { path: 'report/rental', component: __WEBPACK_IMPORTED_MODULE_2__views__["m" /* RentalReport */] }] },
   // Root Routes
-  { path: '/', component: __WEBPACK_IMPORTED_MODULE_2__views__["o" /* StaticPages */], children: [{ path: '', component: __WEBPACK_IMPORTED_MODULE_2__views__["g" /* Home */] }, { path: 'vehicle/:vid', component: __WEBPACK_IMPORTED_MODULE_2__views__["p" /* VehicleView */] }, { path: 'about', component: __WEBPACK_IMPORTED_MODULE_2__views__["a" /* About */] }, { path: 'contact', component: __WEBPACK_IMPORTED_MODULE_2__views__["e" /* Contact */] }, { path: '/user', component: __WEBPACK_IMPORTED_MODULE_2__views__["k" /* Profile */] }] },
+  { path: '/', component: __WEBPACK_IMPORTED_MODULE_2__views__["p" /* StaticPages */], children: [{ path: '', component: __WEBPACK_IMPORTED_MODULE_2__views__["g" /* Home */] }, { path: 'vehicle/:vid', component: __WEBPACK_IMPORTED_MODULE_2__views__["q" /* VehicleView */] }, { path: 'about', component: __WEBPACK_IMPORTED_MODULE_2__views__["a" /* About */] }, { path: 'contact', component: __WEBPACK_IMPORTED_MODULE_2__views__["e" /* Contact */] }, { path: '/user', component: __WEBPACK_IMPORTED_MODULE_2__views__["k" /* Profile */] }] },
   // Exception Handler Routes
   { path: '/not-found', component: __WEBPACK_IMPORTED_MODULE_2__views__["j" /* NotFound */] }, { path: '*', component: __WEBPACK_IMPORTED_MODULE_2__views__["j" /* NotFound */] }]
 });
@@ -75577,13 +75577,13 @@ if (inBrowser && window.Vue) {
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_0__NotFound_vue___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StaticPages_vue__ = __webpack_require__(427);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__StaticPages_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__StaticPages_vue__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "o", function() { return __WEBPACK_IMPORTED_MODULE_1__StaticPages_vue___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "p", function() { return __WEBPACK_IMPORTED_MODULE_1__StaticPages_vue___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__StaticPages_Home_vue__ = __webpack_require__(433);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__StaticPages_Home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__StaticPages_Home_vue__);
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_2__StaticPages_Home_vue___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__StaticPages_VehicleView_vue__ = __webpack_require__(436);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__StaticPages_VehicleView_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__StaticPages_VehicleView_vue__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "p", function() { return __WEBPACK_IMPORTED_MODULE_3__StaticPages_VehicleView_vue___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "q", function() { return __WEBPACK_IMPORTED_MODULE_3__StaticPages_VehicleView_vue___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__StaticPages_About_vue__ = __webpack_require__(441);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__StaticPages_About_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__StaticPages_About_vue__);
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__StaticPages_About_vue___default.a; });
@@ -75610,16 +75610,19 @@ if (inBrowser && window.Vue) {
 /* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_11__Admin_accounts_ListAccount_vue___default.a; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Admin_reports_VehicleReport_vue__ = __webpack_require__(474);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__Admin_reports_VehicleReport_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__Admin_reports_VehicleReport_vue__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "m", function() { return __WEBPACK_IMPORTED_MODULE_12__Admin_reports_VehicleReport_vue___default.a; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__Admin_vehicles_NewVehicle_vue__ = __webpack_require__(477);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__Admin_vehicles_NewVehicle_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__Admin_vehicles_NewVehicle_vue__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_13__Admin_vehicles_NewVehicle_vue___default.a; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Admin_vehicles_SearchVehicle_vue__ = __webpack_require__(480);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Admin_vehicles_SearchVehicle_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__Admin_vehicles_SearchVehicle_vue__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "n", function() { return __WEBPACK_IMPORTED_MODULE_14__Admin_vehicles_SearchVehicle_vue___default.a; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__User_Profile_vue__ = __webpack_require__(485);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__User_Profile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__User_Profile_vue__);
-/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_15__User_Profile_vue___default.a; });
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "n", function() { return __WEBPACK_IMPORTED_MODULE_12__Admin_reports_VehicleReport_vue___default.a; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__Admin_reports_RentalReport_vue__ = __webpack_require__(496);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__Admin_reports_RentalReport_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__Admin_reports_RentalReport_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "m", function() { return __WEBPACK_IMPORTED_MODULE_13__Admin_reports_RentalReport_vue___default.a; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Admin_vehicles_NewVehicle_vue__ = __webpack_require__(477);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__Admin_vehicles_NewVehicle_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14__Admin_vehicles_NewVehicle_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_14__Admin_vehicles_NewVehicle_vue___default.a; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Admin_vehicles_SearchVehicle_vue__ = __webpack_require__(480);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__Admin_vehicles_SearchVehicle_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15__Admin_vehicles_SearchVehicle_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "o", function() { return __WEBPACK_IMPORTED_MODULE_15__Admin_vehicles_SearchVehicle_vue___default.a; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__User_Profile_vue__ = __webpack_require__(485);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__User_Profile_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16__User_Profile_vue__);
+/* harmony reexport (default from non-hamory) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_16__User_Profile_vue___default.a; });
 // Static Pages
 
 
@@ -75632,6 +75635,7 @@ if (inBrowser && window.Vue) {
 
 
 // Admin Pages
+
 
 
 
@@ -76491,9 +76495,7 @@ var staticRenderFns = [
           ]),
           _vm._v(" "),
           _c("span", { staticStyle: { "font-size": "1.75rem" } }, [
-            _vm._v(
-              "\n            Seus carros de A, a B e até A novamente.\n          "
-            )
+            _vm._v("\n            Te levando de A a B.\n          ")
           ]),
           _vm._v(" "),
           _c("span", { staticStyle: { "font-size": "1.55rem" } }, [
@@ -76761,7 +76763,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         alert('Faça login para continuar!');
         return;
       } else {
-        console.log('Oi');
         this.loading = true;
         Object(__WEBPACK_IMPORTED_MODULE_2__helpers_api_js__["c" /* post */])('/reserve', {
           start: this.start,
@@ -76773,6 +76774,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
           _this2.start = '';
           _this2.end = '';
+          _this2.$router.push('/');
+          alert('Reserva efetuada com sucesso!');
         }).catch(function (err) {
           console.log(err);
         }).finally(function () {
@@ -79103,6 +79106,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
@@ -79229,6 +79235,18 @@ var render = function() {
                     "router-link",
                     { attrs: { to: "/admin/report", tag: "a" } },
                     [_vm._v("Veículos")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "li",
+                [
+                  _c(
+                    "router-link",
+                    { attrs: { to: "/admin/report/rental", tag: "a" } },
+                    [_vm._v("Locações")]
                   )
                 ],
                 1
@@ -81954,6 +81972,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                         case 2:
                             _context.next = 4;
                             return Object(__WEBPACK_IMPORTED_MODULE_1__helpers_api__["b" /* get */])('/rental/' + this.user.id).then(function (res) {
+                                console.log(res.data);
                                 _this.rentals.push(res.data);
                             }).catch(function (err) {
                                 return console.log(err);
@@ -87359,6 +87378,236 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 493 */,
+/* 494 */,
+/* 495 */,
+/* 496 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(11)
+/* script */
+var __vue_script__ = __webpack_require__(497)
+/* template */
+var __vue_template__ = __webpack_require__(498)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/views/Admin/reports/RentalReport.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-120800bb", Component.options)
+  } else {
+    hotAPI.reload("data-v-120800bb", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 497 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function(moment) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_api__ = __webpack_require__(18);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            rentals: []
+        };
+    },
+    mounted: function mounted() {
+        var _this = this;
+
+        Object(__WEBPACK_IMPORTED_MODULE_0__helpers_api__["b" /* get */])('/rentals').then(function (res) {
+            _this.rentals = res.data;
+        }).catch(function (err) {
+            return console.error(err);
+        });
+    },
+
+    methods: {
+        startDate: function startDate(rental) {
+            return moment(rental.start).format('DD/MM/YYYY');
+        },
+        finalStatus: function finalStatus(rental) {
+            if (rental.status == 'NOT_CONFIRMED') return 'Pendente';else if (rental.status == 'CONFIRMED') return 'Confirmado';else return 'Cancelado';
+        },
+        endDate: function endDate(rental) {
+            return moment(rental.end).format('DD/MM/YYYY');
+        },
+        isReserved: function isReserved(rental) {
+            if (rental.reserved == 1) return 'Sim';else return 'Não';
+        }
+    }
+});
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+
+/***/ }),
+/* 498 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "card admin-card mt-3 mr-3" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "table-responsive" }, [
+      _c("table", { staticClass: "table" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.rentals, function(rental) {
+            return _c("tr", { key: rental.id }, [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(rental.id))
+              ]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(rental.user_id))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(rental.vehicle_id))]),
+              _vm._v(" "),
+              _c("td", [_vm._v("R$ " + _vm._s(rental.final_price) + ",00")]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(rental.code))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.isReserved(rental)))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.finalStatus(rental)))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.startDate(rental)))]),
+              _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(_vm.endDate(rental)))])
+            ])
+          }),
+          0
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "card-header header-admin",
+        staticStyle: { "font-size": "22px" }
+      },
+      [_c("strong", [_vm._v("Relatório de Locações")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-dark" }, [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("User ID")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("ID do Veículo")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Preço Final")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Código")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Reserva")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Status")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Início")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Fim")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-120800bb", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

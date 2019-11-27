@@ -44,7 +44,7 @@
               ASABILITA.
             </h1>
             <span style="font-size: 1.75rem">
-              Seus carros de A, a B e até A novamente.
+              Te levando de A a B.
             </span>
             <span style="font-size: 1.55rem">
               Venha nos conhecer!

@@ -7,7 +7,7 @@ import {
   // Auth Pages
   Auth, Register, Login,
   // Admin Pages
-  Admin, Dashboard, AllAccounts, Report,
+  Admin, Dashboard, AllAccounts, Report, RentalReport,
   // Vehicle Management Pages
   NewVehicle, SearchVehicle,
   // User Pages
@@ -34,7 +34,8 @@ export const router = new VueRouter({
       { path: 'vehicle/new', component: NewVehicle },
       //Account Management
       { path: 'accounts', component: AllAccounts},
-      { path: 'report', component: Report}
+      { path: 'report', component: Report},
+      { path: 'report/rental', component: RentalReport }
     ] },
     // Root Routes
     { path: '/', component: StaticPages, children: [

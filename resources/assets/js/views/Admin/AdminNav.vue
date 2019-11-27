@@ -45,6 +45,9 @@
           <li>
             <router-link to="/admin/report" tag="a">Veículos</router-link>
           </li>
+          <li>
+            <router-link to="/admin/report/rental" tag="a">Locações</router-link>
+          </li>
         </ul>
       </li>
     </ul>
