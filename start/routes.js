@@ -15,8 +15,8 @@ Route.group(() => {
   Route.get('/user/load', 'UserController.load').middleware(['auth'])
 
   // Rental Routes
-  Route.get('/available', 'RentalController.available')
   Route.get('/rentals', 'RentalController.index').middleware(['auth'])
+  Route.get('/rental/:id', 'RentalController.show').middleware(['auth'])
   Route.post('/reserve', 'RentalController.store').middleware(['auth'])
 
   // Vehicle Routes
