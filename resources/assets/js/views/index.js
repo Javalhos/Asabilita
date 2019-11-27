@@ -14,6 +14,7 @@ export { default as Admin } from './Admin.vue';
 export { default as Dashboard } from './Admin/Dashboard.vue';
 export { default as AllAccounts} from './Admin/accounts/ListAccount.vue';
 export { default as Report } from './Admin/reports/VehicleReport.vue';
+export { default as ConfirmRental } from './Admin/rentals/ConfirmRental.vue'
 export { default as RentalReport } from './Admin/reports/RentalReport.vue';
 // Vehicle Management Pages
 export { default as NewVehicle } from './Admin/vehicles/NewVehicle.vue';

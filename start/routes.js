@@ -17,6 +17,8 @@ Route.group(() => {
   // Rental Routes
   Route.get('/rentals', 'RentalController.index').middleware(['auth'])
   Route.get('/rental/:id', 'RentalController.show').middleware(['auth'])
+  Route.get('/rental/code/:code', 'RentalController.showByCode').middleware(['auth'])
+  Route.post('/rental/confirm/:code', 'RentalController.confirmRental').middleware(['auth'])
   Route.post('/reserve', 'RentalController.store').middleware(['auth'])
 
   // Vehicle Routes

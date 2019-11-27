@@ -7,7 +7,7 @@ import {
   // Auth Pages
   Auth, Register, Login,
   // Admin Pages
-  Admin, Dashboard, AllAccounts, Report, RentalReport,
+  Admin, Dashboard, AllAccounts, Report, ConfirmRental,
   // Vehicle Management Pages
   NewVehicle, SearchVehicle,
   // User Pages
@@ -28,7 +28,9 @@ export const router = new VueRouter({
     ] },
     // Admin Routes
     { path: '/admin', meta: { auth: true, isAdmin: true }, component: Admin, children: [
-      { path: '', component: Dashboard },
+	  { path: '', component: Dashboard },
+	  // rental
+	  { path: 'rental/confirm', component: ConfirmRental },
       // Vehicle Management
       { path: 'vehicle', component: SearchVehicle },
       { path: 'vehicle/new', component: NewVehicle },

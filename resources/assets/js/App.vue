@@ -20,7 +20,7 @@ export default {
     };
   },
   mounted() {
-    
+    this.setup()
   },
   methods: {
     setup() {

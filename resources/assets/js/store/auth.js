@@ -26,15 +26,8 @@ export default {
     this.state.token = localStorage.getItem('aba_token');
   },
 
-  set(token, remember = true) {
-    this.options.remember = !!remember;
-
-    if (this.options.remember) {
-      localStorage.setItem('aba_token', token);
-    } else {
-      this.remove();
-    }
-
+  set(token) {
+    localStorage.setItem('aba_token', token);
     this.state.token = token;
   },
 

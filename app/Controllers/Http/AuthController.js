@@ -9,18 +9,23 @@ class AuthController {
 
   async signin({
     request,
-    auth
+    auth,
+    response
   }) {
     let {
       email,
       password
     } = request.all();
 
-    let tokens = await auth
-      .withRefreshToken()
-      .attempt(email, password);
-
-    return tokens;
+    try {
+      let tokens = await auth
+        .attempt(email, password);
+    
+      return tokens;
+    } catch (e) {
+      console.error(e)
+      return response.status(401).send({ message: 'Usuário não cadastrado' })
+    }
   }
 
   async signup({
