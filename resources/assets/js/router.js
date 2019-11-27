@@ -7,7 +7,7 @@ import {
   // Auth Pages
   Auth, Register, Login,
   // Admin Pages
-  Admin, Dashboard, AllAccounts, Report, ConfirmRental,
+  Admin, Dashboard, AllAccounts, Report, ConfirmRental, RentalReport,
   // Vehicle Management Pages
   NewVehicle, SearchVehicle,
   // User Pages
