@@ -19,7 +19,7 @@
         <!-- NAV Links -->
         <div class="collapse navbar-collapse" id="mainNavBar">
           <ul class="navbar-nav ml-auto" v-if="!!authState.token">
-            <router-link to='/admin' tag="li" v-if="currentUser.role === 'ADMIN'">
+            <router-link to='/admin' tag="li" class="nav-item" v-if="currentUser.role === 'ADMIN'">
               <a class="nav-link">Admin</a>
             </router-link>
             <li class="nav-item">
@@ -47,6 +47,9 @@
         <ul class="nav justify-content-end">
           <li class="nav-item">
             <router-link class="nav-link" to="/">HOME</router-link>
+          </li>
+           <li class="nav-item" v-if="!!authState.token">
+            <router-link class="nav-link" to="/user">PROFILE</router-link>
           </li>
         </ul>
       </nav>

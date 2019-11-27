@@ -17,3 +17,5 @@ export { default as Report } from './Admin/reports/VehicleReport.vue';
 // Vehicle Management Pages
 export { default as NewVehicle } from './Admin/vehicles/NewVehicle.vue';
 export { default as SearchVehicle } from './Admin/vehicles/SearchVehicle.vue';
+// User Pages
+export { default as Profile } from './User/Profile.vue'

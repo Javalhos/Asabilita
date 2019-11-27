@@ -37,6 +37,10 @@ class VehicleController {
     }
   }
 
+  async available() {
+    return await Vehicle.where('status', 'AVAILABLE').fetch()
+  }
+
   async store({ request, response }) {
     try {
       let vehicle = Vehicle.create(request.only([

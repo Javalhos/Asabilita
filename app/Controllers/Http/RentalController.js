@@ -1,7 +1,5 @@
 'use strict'
 
-import moment from 'moment'
-
 const Vehicle = use('App/Models/Vehicle')
 
 const Rental = use('App/Models/Rental')
@@ -27,26 +25,30 @@ class RentalController {
     return rental
   }
 
-  async reserve ({ request, response, params, auth }) {
-    const { start, end, details } = request.only([
+  async store ({ request, response, auth }) {
+    console.log('Entrou')
+    const { start, end, finalPrice, vId } = await request.only([
       'start',
       'end',
-      'details'
+      'finalPrice',
+      'vId'
     ])
 
     const user = auth.current.user
+
+    if (!user)
+      return response.status(500).send({ error: 'You must be logged' })
+
     let vehicle
     
     try {
-      vehicle = await Vehicle.find(params.id)
+      vehicle = await Vehicle.find(vId)
     } catch (e) {
       console.log(e)
     }
 
     if (!vehicle)
       return response.status(404).send({ message: 'Vehicle not Found!' })
-
-    let finalPrice = vehicle.price * this.calcDuration(start, end)
 
     let newCode = `${user.id}-${vehicle.id}-${(new Date).getTime()}`
 
@@ -57,7 +59,8 @@ class RentalController {
       code: newCode,
       reserved: true,
       status: 'NOT_CONFIRMED',
-      details
+      start,
+      end
     })
 
     if (rental) {
@@ -68,13 +71,6 @@ class RentalController {
     }
 
     return response.status(500).send({ message: 'Failed to add rental registry' })
-  }
-
-  calcDuration (start, end) {
-    const startDate = moment(start)
-    const endDate = moment(end)
-
-    return startDate.diff(endDate, 'days')
   }
 }
 

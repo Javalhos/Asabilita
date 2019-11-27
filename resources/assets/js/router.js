@@ -10,6 +10,8 @@ import {
   Admin, Dashboard, AllAccounts, Report,
   // Vehicle Management Pages
   NewVehicle, SearchVehicle,
+  // User Pages
+  Profile
 } from './views';
 
 Vue.use(VueRouter);
@@ -39,7 +41,8 @@ export const router = new VueRouter({
       { path: '', component: Home },
       { path: 'vehicle/:vid', component: VehicleView},
       { path: 'about', component: About},
-      { path: 'contact', component: Contact}
+      { path: 'contact', component: Contact},
+      { path: '/user', component: Profile },
     ] },
     // Exception Handler Routes
     { path: '/not-found', component: NotFound },
